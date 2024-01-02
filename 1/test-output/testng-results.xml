@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-02T15:09:22 PKT" name="Default suite" finished-at="2024-01-02T15:11:15 PKT" duration-ms="112635">
+    <groups>
+    </groups>
+    <test started-at="2024-01-02T15:09:22 PKT" name="Default test" finished-at="2024-01-02T15:11:15 PKT" duration-ms="112635">
+      <class name="Veroke.ruhiy">
+        <test-method is-config="true" signature="chrome_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-02T15:09:22 PKT" name="chrome_setup" finished-at="2024-01-02T15:09:31 PKT" duration-ms="8677" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- chrome_setup -->
+        <test-method signature="login()[pri:1, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-02T15:09:31 PKT" name="login" finished-at="2024-01-02T15:10:56 PKT" duration-ms="84572" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="UserManagement()[pri:2, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-02T15:10:56 PKT" name="UserManagement" finished-at="2024-01-02T15:11:11 PKT" duration-ms="15790" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UserManagement -->
+        <test-method is-config="true" signature="close_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-02T15:11:11 PKT" name="close_setup" finished-at="2024-01-02T15:11:15 PKT" duration-ms="3510" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close_setup -->
+      </class> <!-- Veroke.ruhiy -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
