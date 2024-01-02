@@ -288,12 +288,12 @@ public class ruhiy {
 			System.out.println("Entries found with search result: ");
 			for (int i = 0; i < table_element.size(); i++) {
 				WebElement element = table_element.get(i);
-				System.out.println("---------------------------------------");
+				System.out.println("--------------------------------------- ");
 				System.out.println(element.getText());
 				System.out.println("---------------------------------------");
 			}
 
-			flag = 1;
+			flag = 1; 
 		} else {
 			flag = 0;
 		}
