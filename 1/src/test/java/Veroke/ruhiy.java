@@ -291,7 +291,7 @@ public class ruhiy {
 				System.out.println("--------------------------------------- ");
 				System.out.println(element.getText());
 				System.out.println("--------------------------------------- ");
-				System.out.println("-------------------GIT PUSH-------------------- ");
+				System.out.println("-------------------GIT PUSH--------------------");
 			}
 
 			flag = 1; 
