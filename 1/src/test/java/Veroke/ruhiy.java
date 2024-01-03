@@ -290,7 +290,8 @@ public class ruhiy {
 				WebElement element = table_element.get(i);
 				System.out.println("--------------------------------------- ");
 				System.out.println(element.getText());
-				System.out.println("---------------------------------------");
+				System.out.println("--------------------------------------- ");
+				System.out.println("-------------------GIT PUSH-------------------- ");
 			}
 
 			flag = 1; 
