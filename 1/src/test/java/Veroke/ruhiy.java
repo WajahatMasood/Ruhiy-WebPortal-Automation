@@ -185,12 +185,48 @@ public class ruhiy {
 	@Test(priority = 2)
 	public void UserManagement() throws InterruptedException {
 		ExtentTest test = extend.createTest("User Management Test");
+		// ==========================================================================================
+		// Checking User Count ---
+		// ==========================================================================================
+
+		Thread.sleep(4000);
+		List<WebElement> no_of_user = driver.findElements(By.xpath(
+				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table//tr"));
+		System.out.println("Entries found are");
+		System.out.println("===================================================");
+		System.out.println("Totoal Number of User Are: " + (no_of_user.size()-1));
+		for (int i = 0; i < no_of_user.size(); i++) {
+			WebElement element = no_of_user.get(i);
+			System.out.println("--------------------------------------- ");
+			System.out.println(element.getText());
+			System.out.println("--------------------------------------- ");
+		}
+		System.out.println("===================================================");
+		WebElement counting = driver.findElement(By.xpath(
+				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[2]/div[1]/h1"));
+		
+		
+		
+		
+		int no_one = no_of_user.size();
+		String no_two = counting.getText();
+		int no_two_int = Integer.parseInt(no_two);
+
+		if (no_one == no_two_int) {
+			test.log(Status.PASS, "Totoal Number of User mentioned on the portal are equal to " + no_two_int);
+		} else {
+			test.log(Status.FAIL, "Totoal Number of User mentioned on the portal are not equal "
+					+ "Webportal Number is : " + no_two_int + "Conted Value is :" + no_one);
+		}
+		// ==========================================================================================
+		// Searching
+		// ==========================================================================================
+		// ----------------Search#1
 		WebElement searchfield = driver.findElement(By.xpath("//*[@id=\"mat-input-0\"]"));
 		String search_element_1 = "Murtaza";
 		String search_element_2 = "3";
 		String search_element_3 = "213213123123123";
 
-		// ----------------------------------------Search#1
 		searchfield.sendKeys(search_element_1);
 		Thread.sleep(3000);
 		try {
@@ -198,6 +234,7 @@ public class ruhiy {
 					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/div"));
 			String textt = no_element.getText();
 			if (textt.equals("No Record Found")) {
+				test.log(Status.PASS, "No Record Found Upon searching '" + search_element_1 + "'");
 			} else {
 				isEmpltyCheck(search_element_1);
 			}
@@ -205,17 +242,19 @@ public class ruhiy {
 			System.out.println("Element not found. Executing isEmpltyCheck...");
 			int flag_value = isEmpltyCheck(search_element_1);
 			if (flag_value == 0) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_1 + "' No Element observed in the table it returns text 'No Record Found'");
+				test.log(Status.PASS, "Upon Searching '" + search_element_1
+						+ "' No Element observed in the table it returns text 'No Record Found'");
 			}
-			
+
 			else if (flag_value == 1) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_1 + "' Element observed in the table which is printed on console");
+				test.log(Status.PASS, "Upon Searching '" + search_element_1
+						+ "' Element observed in the table which is printed on console");
 			}
-			
+
 			else {
-				test.log(Status.PASS, "Upon Searching '" + search_element_1 + "' Unexpected warning appear perform the same operation");
+				test.log(Status.PASS, "Upon Searching '" + search_element_1
+						+ "' Unexpected warning appear perform the same operation");
 			}
-			
 		}
 		Thread.sleep(3000);
 		searchfield.clear();
@@ -228,6 +267,7 @@ public class ruhiy {
 					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/div"));
 			String textt = no_element.getText();
 			if (textt.equals("No Record Found")) {
+				test.log(Status.PASS, "No Record Found Upon searching '" + search_element_2 + "'");
 			} else {
 				isEmpltyCheck(search_element_2);
 			}
@@ -235,14 +275,16 @@ public class ruhiy {
 			System.out.println("Element not found. Executing isEmpltyCheck...");
 			int flag_value = isEmpltyCheck(search_element_2);
 			if (flag_value == 0) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_2 + "' No Element observed in the table it returns text 'No Record Found'");
+				test.log(Status.PASS, "Upon Searching '" + search_element_2
+						+ "' No Element observed in the table it returns text 'No Record Found'");
 			}
-			
+
 			else if (flag_value == 1) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_2 + "' Element observed in the table which is printed on console");
-			}
-			else {
-				test.log(Status.FAIL, "Upon Searching '" + search_element_2 + "' Unexpected warning appear perform the same operation");
+				test.log(Status.PASS, "Upon Searching '" + search_element_2
+						+ "' Element observed in the table which is printed on console");
+			} else {
+				test.log(Status.FAIL, "Upon Searching '" + search_element_2
+						+ "' Unexpected warning appear perform the same operation");
 			}
 		}
 		Thread.sleep(3000);
@@ -256,7 +298,7 @@ public class ruhiy {
 					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/div"));
 			String textt = no_element.getText();
 			if (textt.equals("No Record Found")) {
-				System.out.println("Element No found with a message: ' " + textt +"'");
+				test.log(Status.PASS, "No Record Found Upon searching '" + search_element_3 + "'");
 			} else {
 				isEmpltyCheck(search_element_3);
 			}
@@ -264,19 +306,22 @@ public class ruhiy {
 			System.out.println("Element not found. Executing isEmpltyCheck...");
 			int flag_value = isEmpltyCheck(search_element_3);
 			if (flag_value == 0) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_3 + "' No Element observed in the table it returns text 'No Record Found'");
+				test.log(Status.PASS, "Upon Searching '" + search_element_3
+						+ "' No Element observed in the table it returns text 'No Record Found'");
 			}
-		
+
 			else if (flag_value == 1) {
-				test.log(Status.PASS, "Upon Searching '" + search_element_3 + "' Element observed in the table which is printed on console");
+				test.log(Status.PASS, "Upon Searching '" + search_element_3
+						+ "' Element observed in the table which is printed on console");
+			} else {
+				test.log(Status.FAIL, "Upon Searching '" + search_element_3
+						+ "' Unexpected warning appear perform the same operation manually");
+
 			}
-			else {
-				test.log(Status.FAIL, "Upon Searching '" + search_element_3 + "' Unexpected warning appear perform the same operation");
-			
+			Thread.sleep(3000);
+			searchfield.clear();
 		}
-		Thread.sleep(3000);
-		searchfield.clear();
-	}}
+	}
 
 // Is Empty Check for user management
 	public Integer isEmpltyCheck(String Element) {
@@ -284,21 +329,33 @@ public class ruhiy {
 		System.out.println("------------------  " + Element + "  ------------------");
 		List<WebElement> table_element = driver.findElements(By.xpath(
 				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table"));
-		if (!table_element.isEmpty()) {
-			System.out.println("Entries found with search result: ");
-			for (int i = 0; i < table_element.size(); i++) {
-				WebElement element = table_element.get(i);
-				System.out.println("--------------------------------------- ");
-				System.out.println(element.getText());
-				System.out.println("--------------------------------------- ");
-				System.out.println("-------------------GIT PUSH--------------------");
+		try {
+			WebElement no_element = driver.findElement(By.xpath(
+					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/div"));
+			String textt = no_element.getText();
+			if (textt.equals("No Record Found")) {
+				flag = 0;
+				return flag;
 			}
+		} catch (Exception e) {
+			System.out.println("Executing Entity Check");
+			if (!table_element.isEmpty()) {
+				System.out.println("Entries found with search result: ");
+				for (int i = 0; i < table_element.size(); i++) {
+					WebElement element = table_element.get(i);
+					System.out.println("--------------------------------------- ");
+					System.out.println(element.getText());
+					System.out.println("--------------------------------------- ");
+				}
 
-			flag = 1; 
-		} else {
-			flag = 0;
+				flag = 1;
+			} else {
+				flag = 0;
+			}
+			return flag;
+
 		}
-		return flag;
+		return null;
 	}
 
 	@AfterTest
