@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-01-03T11:29:27 PKT" name="Default suite" finished-at="2024-01-03T11:31:28 PKT" duration-ms="121284">
+  <suite started-at="2024-01-09T11:51:11 PKT" name="Default suite" finished-at="2024-01-09T11:53:12 PKT" duration-ms="120739">
     <groups>
     </groups>
-    <test started-at="2024-01-03T11:29:27 PKT" name="Default test" finished-at="2024-01-03T11:31:28 PKT" duration-ms="121284">
+    <test started-at="2024-01-09T11:51:11 PKT" name="Default test" finished-at="2024-01-09T11:53:12 PKT" duration-ms="120739">
       <class name="Veroke.ruhiy">
-        <test-method is-config="true" signature="chrome_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-03T11:29:27 PKT" name="chrome_setup" finished-at="2024-01-03T11:29:39 PKT" duration-ms="11999" status="PASS">
+        <test-method is-config="true" signature="chrome_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-09T11:51:11 PKT" name="chrome_setup" finished-at="2024-01-09T11:51:20 PKT" duration-ms="9047" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- chrome_setup -->
-        <test-method signature="login()[pri:1, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-03T11:29:39 PKT" name="login" finished-at="2024-01-03T11:31:04 PKT" duration-ms="85500" status="PASS">
+        <test-method signature="login()[pri:1, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-09T11:51:20 PKT" name="login" finished-at="2024-01-09T11:52:45 PKT" duration-ms="84747" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="UserManagement()[pri:2, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-03T11:31:04 PKT" name="UserManagement" finished-at="2024-01-03T11:31:24 PKT" duration-ms="20129" status="PASS">
+        <test-method signature="UserManagement()[pri:2, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-09T11:52:45 PKT" name="UserManagement" finished-at="2024-01-09T11:53:08 PKT" duration-ms="23156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UserManagement -->
-        <test-method is-config="true" signature="close_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-03T11:31:24 PKT" name="close_setup" finished-at="2024-01-03T11:31:28 PKT" duration-ms="3581" status="PASS">
+        <test-method is-config="true" signature="close_setup()[pri:0, instance:Veroke.ruhiy@1787f2a0]" started-at="2024-01-09T11:53:08 PKT" name="close_setup" finished-at="2024-01-09T11:53:12 PKT" duration-ms="3729" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close_setup -->

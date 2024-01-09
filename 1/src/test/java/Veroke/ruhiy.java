@@ -194,7 +194,7 @@ public class ruhiy {
 				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table//tr"));
 		System.out.println("Entries found are");
 		System.out.println("===================================================");
-		System.out.println("Totoal Number of User Are: " + (no_of_user.size()-1));
+		System.out.println("Totoal Number of User Are: " + (no_of_user.size() - 1));
 		for (int i = 0; i < no_of_user.size(); i++) {
 			WebElement element = no_of_user.get(i);
 			System.out.println("--------------------------------------- ");
@@ -202,12 +202,17 @@ public class ruhiy {
 			System.out.println("--------------------------------------- ");
 		}
 		System.out.println("===================================================");
+		int page_one = no_of_user.size();// Page 2
+		WebElement pagenation_move_next = driver.findElement(By.xpath(
+				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/app-pagination/div/div/div/mat-icon[2]"));
+		pagenation_move_next.click();
+		Thread.sleep(4000);
+		int page_two = no_of_user.size();
+		
+		// Total number on the top
 		WebElement counting = driver.findElement(By.xpath(
 				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[2]/div[1]/h1"));
-		
-		
-		
-		
+
 		int no_one = no_of_user.size();
 		String no_two = counting.getText();
 		int no_two_int = Integer.parseInt(no_two);
@@ -299,6 +304,9 @@ public class ruhiy {
 			String textt = no_element.getText();
 			if (textt.equals("No Record Found")) {
 				test.log(Status.PASS, "No Record Found Upon searching '" + search_element_3 + "'");
+				searchfield.clear();
+				Thread.sleep(3000);
+
 			} else {
 				isEmpltyCheck(search_element_3);
 			}
