@@ -5,7 +5,6 @@
     <classes>
       <class name="Veroke.ruhiy">
         <methods>
-          <include name="login"/>
           <include name="chrome_setup"/>
           <include name="UserManagement"/>
           <include name="close_setup"/>

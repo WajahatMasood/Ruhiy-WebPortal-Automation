@@ -190,38 +190,66 @@ public class ruhiy {
 		// ==========================================================================================
 
 		Thread.sleep(4000);
-		List<WebElement> no_of_user = driver.findElements(By.xpath(
-				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table//tr"));
-		System.out.println("Entries found are");
-		System.out.println("===================================================");
-		System.out.println("Totoal Number of User Are: " + (no_of_user.size() - 1));
-		for (int i = 0; i < no_of_user.size(); i++) {
-			WebElement element = no_of_user.get(i);
-			System.out.println("--------------------------------------- ");
-			System.out.println(element.getText());
-			System.out.println("--------------------------------------- ");
-		}
-		System.out.println("===================================================");
-		int page_one = no_of_user.size();// Page 2
-		WebElement pagenation_move_next = driver.findElement(By.xpath(
-				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/app-pagination/div/div/div/mat-icon[2]"));
-		pagenation_move_next.click();
+//		List<WebElement> no_of_user = driver.findElements(By.xpath(
+//				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table//tr"));
+//		System.out.println("Entries found are");
+//		System.out.println("===================================================");
+//		System.out.println("Totoal Number of User Are: " + (no_of_user.size() - 1));
+//		for (int i = 0; i < no_of_user.size(); i++) {
+//			WebElement element = no_of_user.get(i);
+//			System.out.println("--------------------------------------- ");
+//			System.out.println(element.getText());
+//			System.out.println("--------------------------------------- ");
+//		}
+//		System.out.println("===================================================");
+////		
 		Thread.sleep(4000);
-		int page_two = no_of_user.size();
-		
-		// Total number on the top
-		WebElement counting = driver.findElement(By.xpath(
-				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[2]/div[1]/h1"));
+		List<WebElement> no_of_user = driver.findElements(By.xpath(
+				"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/div[2]/table//tr"));;
+		WebElement pagenation_move_next;
+		int totalCount = 0;
 
-		int no_one = no_of_user.size();
-		String no_two = counting.getText();
-		int no_two_int = Integer.parseInt(no_two);
+		do {
+			System.out.println("Entries found are");
+			System.out.println("===================================================");
+			System.out.println("Total Number of User Are: " + (no_of_user.size() - 1));
 
-		if (no_one == no_two_int) {
-			test.log(Status.PASS, "Totoal Number of User mentioned on the portal are equal to " + no_two_int);
+//			for (int i = 0; i < no_of_user.size(); i++) {
+//				WebElement element = no_of_user.get(i);
+//				System.out.println("--------------------------------------- ");
+//				System.out.println(element.getText());
+//				System.out.println("--------------------------------------- ");
+//			}
+
+			System.out.println("===================================================");
+
+			totalCount += no_of_user.size() - 1; // Subtracting the header row
+
+//			counting = driver.findElement(By.xpath(
+//					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[2]/div[1]/h1"));
+
+			pagenation_move_next = driver.findElement(By.xpath(
+					"/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[3]/app-pagination/div/div/div/mat-icon[2]"));
+		    String colorValue = pagenation_move_next.getCssValue("color");
+		    
+		    if (colorValue.equals("rgb(50, 130, 120)")) { // #328278 color in RGB format
+		        pagenation_move_next.click();
+		    } else if (colorValue.equals("rgb(129, 122, 122)")) { // #817a7a!important color in RGB format
+		        break;
+		    }
+			Thread.sleep(4000);
+		} while (pagenation_move_next.isEnabled());
+
+		System.out.println("Total count of users across pages: " + totalCount);
+		WebElement totoal_Numeber_of_User = driver.findElement(By.xpath("/html/body/app-root/app-main/mat-sidenav-container/mat-sidenav-content/div[2]/app-users-management/app-table/div/div[1]/div[1]/div/h2"));
+		String total_user_on_Web = totoal_Numeber_of_User.getText();
+		int total_number_on_web_Int = Integer.parseInt(total_user_on_Web);
+
+		if (totalCount == total_number_on_web_Int) {
+			test.log(Status.PASS, "Totoal Number of User mentioned on the portal are equal to " + total_number_on_web_Int);
 		} else {
 			test.log(Status.FAIL, "Totoal Number of User mentioned on the portal are not equal "
-					+ "Webportal Number is : " + no_two_int + "Conted Value is :" + no_one);
+					+ "Webportal Number is : " + total_number_on_web_Int + "Conted Value is :" + totalCount);
 		}
 		// ==========================================================================================
 		// Searching
